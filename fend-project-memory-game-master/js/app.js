@@ -6,29 +6,41 @@ const myDeck = getDeck[0];
  */
 
 const deck = [];
+const cardValues = [
+'<i class="fa fa-anchor"></i>',
+'<i class="fa fa-anchor"></i>',
+'<i class="fa fa-bicycle"></i>',
+'<i class="fa fa-bicycle"></i>',
+'<i class="fa fa-bolt"></i>',
+'<i class="fa fa-bolt"></i>',
+'<i class="fa fa-bomb"></i>',
+'<i class="fa fa-bomb"></i>',
+'<i class="fa fa-cube"></i>',
+'<i class="fa fa-cube"></i>',
+'<i class="fa fa-diamond"></i>',
+'<i class="fa fa-diamond"></i>',
+'<i class="fa fa-leaf"></i>',
+'<i class="fa fa-leaf"></i>',
+'<i class="fa fa-paper-plane-o"></i>',
+'<i class="fa fa-paper-plane-o"></i>'
+];
+
+shuffle(cardValues);
+
 let cardString = "";
 for (let i = 0; i < 12; i++) {
-  const newCard = '<li class="card"><i class=""></i></li>';
+  const newCard = '<li class="card"></li>';
   cardString += newCard;
 };
 
-/* Adding cards to the board  */
+/* Display the cards on the page  */
 myDeck.innerHTML = cardString;
 
 /* Select all cards on the board */
 const myCards = document.getElementsByClassName('card');
 
-/* Adding Click handler to cards on the board */
-for (let i=0; i<myCards.length; i++){
-    myCards[i].addEventListener('click', function(){
-        // console.log('clicked');
-        this.className += ' open show';
-    });
-};
-
 
 /*
- * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
  *   - loop through each card and create its HTML
  *   - add each card's HTML to the page
@@ -50,6 +62,18 @@ function shuffle(array) {
 
     return array;
 }
+
+
+
+/* Adding Click handler to cards on the board */
+for (let i=0; i<myCards.length; i++){
+    myCards[i].innerHTML = cardValues[i];
+    myCards[i].addEventListener('click', function(){
+        // console.log('clicked');
+        this.className += ' open show';
+
+    });
+};
 
 
 /*

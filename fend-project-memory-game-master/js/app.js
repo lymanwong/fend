@@ -21,7 +21,8 @@ const myCards = document.getElementsByClassName('card');
 /* Adding Click handler to cards on the board */
 for (let i=0; i<myCards.length; i++){
     myCards[i].addEventListener('click', function(){
-        console.log('clicked');
+        // console.log('clicked');
+        this.className += ' open show';
     });
 };
 

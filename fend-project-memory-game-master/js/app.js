@@ -1,6 +1,29 @@
+const getDeck = document.getElementsByClassName('deck');
+const myDeck = getDeck[0];
+
 /*
  * Create a list that holds all of your cards
  */
+
+const deck = [];
+let cardString = "";
+for (let i = 0; i < 12; i++) {
+  const newCard = '<li class="card"><i class=""></i></li>';
+  cardString += newCard;
+};
+
+/* Adding cards to the board  */
+myDeck.innerHTML = cardString;
+
+/* Select all cards on the board */
+const myCards = document.getElementsByClassName('card');
+
+/* Adding Click handler to cards on the board */
+for (let i=0; i<myCards.length; i++){
+    myCards[i].addEventListener('click', function(){
+        console.log('clicked');
+    });
+};
 
 
 /*
@@ -9,6 +32,8 @@
  *   - loop through each card and create its HTML
  *   - add each card's HTML to the page
  */
+
+
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(array) {

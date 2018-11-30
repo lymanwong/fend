@@ -3,7 +3,8 @@ const myDeck = getDeck[0];
 const getMoves = document.getElementsByClassName('moves');
 const moves = getMoves[0];
 let moveCounter = 0;
-
+moves.innerHTML = moveCounter;
+let cardSelection = [];
 /*
  * Create a list that holds all of your cards
  */
@@ -73,10 +74,16 @@ for (let i=0; i<myCards.length; i++){
     myCards[i].innerHTML = cardValues[i];
     myCards[i].addEventListener('click', function(){
         // console.log('clicked');
+
         this.className += ' open show';
+        // let cardVals = this.innerHTML;
+        let cardVals = this.firstChild.className;
+        cardSelection.push(cardVals);
         moveCounter += 1;
         // console.log(moveCounter);
         moves.innerHTML = moveCounter;
+        // console.log(cardSelection);
+        console.log(cardSelection);
     });
 };
 

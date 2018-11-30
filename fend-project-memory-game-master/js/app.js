@@ -1,10 +1,16 @@
-const getDeck = document.getElementsByClassName('deck');
-const myDeck = getDeck[0];
-const getMoves = document.getElementsByClassName('moves');
-const moves = getMoves[0];
-let moveCounter = 0;
-moves.innerHTML = moveCounter;
-let cardSelection = [];
+function init (){
+
+};
+
+init();
+
+
+const myDeck = document.getElementsByClassName('deck')[0];
+const moves = document.getElementsByClassName('moves')[0];
+const myRefresh = document.getElementsByClassName('fa-repeat')[0];
+/* Select all cards on the board */
+const myCards = document.getElementsByClassName('card');
+
 /*
  * Create a list that holds all of your cards
  */
@@ -31,17 +37,19 @@ const cardValues = [
 
 shuffle(cardValues);
 
+let moveCounter = 0;
+moves.innerHTML = moveCounter;
+let cardSelection = [];
 let cardString = "";
+
 for (let i = 0; i < 12; i++) {
   const newCard = '<li class="card"></li>';
   cardString += newCard;
 };
 
+
 /* Display the cards on the page  */
 myDeck.innerHTML = cardString;
-
-/* Select all cards on the board */
-const myCards = document.getElementsByClassName('card');
 
 
 /*
@@ -49,7 +57,6 @@ const myCards = document.getElementsByClassName('card');
  *   - loop through each card and create its HTML
  *   - add each card's HTML to the page
  */
-
 
 
 // Shuffle function from http://stackoverflow.com/a/2450976
@@ -88,6 +95,9 @@ for (let i=0; i<myCards.length; i++){
 };
 
 
+myRefresh.addEventListener('click', function(){
+    location.reload(true);
+});
 
 /*
  * set up the event listener for a card. If a card is clicked:
